@@ -7,6 +7,8 @@
     <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
     <link href="data/styles.css" type="text/css" rel="stylesheet"/>
     <link href="files/p05_ai_提取结果核对/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="portfolio/review-time.css" rel="stylesheet"/>
+    <script src="portfolio/review-time.js" defer></script>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
@@ -108,7 +110,7 @@
             <div id="u25" class="ax_default button transition notrs">
               <div id="u25_div" class=""></div>
               <div id="u25_text" class="text ">
-                <p><span>补充信息</span></p>
+                <p><span>核对时间</span></p>
               </div>
             </div>
 
@@ -164,7 +166,7 @@
             <div id="u32" class="ax_default _形状 transition notrs" data-label="P05时间状态">
               <div id="u32_div" class=""></div>
               <div id="u32_text" class="text ">
-                <p><span>待补充时间</span></p>
+                <p><span>时间待核对</span></p>
               </div>
             </div>
 
@@ -180,7 +182,7 @@
             <div id="u34" class="ax_default _形状 ax_default_hidden transition notrs" data-label="P05缺失提示" style="display:none; visibility: hidden">
               <div id="u34_div" class=""></div>
               <div id="u34_text" class="text ">
-                <p><span>请先点击第二条记录的“补充信息”，补全测量时间后再保存。</span></p>
+                <p><span>请核对第二条记录的时间，填写钟点或保留未知。</span></p>
               </div>
             </div>
 
@@ -224,7 +226,7 @@
             <div id="u40" class="ax_default _文本 ax_default_hidden transition notrs" data-label="P05记录二已补充" style="display:none; visibility: hidden">
               <div id="u40_div" class=""></div>
               <div id="u40_text" class="text ">
-                <p><span>日期：今天</span></p><p><span>时间：14:00</span></p><p><span>测量类型：餐后2小时</span></p>
+                <p><span>日期：今天</span></p><p><span data-record-two-time>时间：未知</span></p><p><span>测量类型：餐后2小时</span></p>
               </div>
             </div>
           </div>
@@ -316,7 +318,7 @@
             <div id="u51" class="ax_default _文本 transition notrs">
               <div id="u51_div" class=""></div>
               <div id="u51_text" class="text ">
-                <p><span>日期：今天</span></p><p><span>时间：14:00</span></p><p><span>测量类型：餐后2小时</span></p>
+                <p><span>日期：今天</span></p><p><span data-record-two-time>时间：未知</span></p><p><span>测量类型：餐后2小时</span></p>
               </div>
             </div>
           </div>
@@ -328,7 +330,7 @@
             <div id="u52" class="ax_default _标题_1 transition notrs">
               <div id="u52_div" class=""></div>
               <div id="u52_text" class="text ">
-                <p><span>补充缺失信息</span></p>
+                <p><span>核对测量时间</span></p>
               </div>
             </div>
 
@@ -336,12 +338,12 @@
             <div id="u53" class="ax_default box_2 transition notrs">
               <div id="u53_div" class=""></div>
               <div id="u53_text" class="text ">
-                <p><span>请补充第二条记录的具体测量时间</span></p><p><span>确认后将返回结果核对页面</span></p>
+                <p><span>核对第二条记录的具体钟点。记不清时可以保留未知。</span></p><p><span>确认后返回结果核对页面。</span></p>
               </div>
             </div>
 
             <!-- Unnamed (矩形) -->
-            <div id="u54" class="ax_default primary_button transition notrs">
+            <div id="u54" class="ax_default primary_button transition notrs" data-time-confirm-hook aria-hidden="true">
               <div id="u54_div" class=""></div>
               <div id="u54_text" class="text ">
                 <p><span>确认补充</span></p>
@@ -368,7 +370,7 @@
             <div id="u57" class="ax_default _文本 transition notrs">
               <div id="u57_div" class=""></div>
               <div id="u57_text" class="text ">
-                <p><span>记录二 · 已有信息</span></p>
+                <p><span>记录二 · 提取结果</span></p>
               </div>
             </div>
 
@@ -376,7 +378,7 @@
             <div id="u58" class="ax_default _文本 transition notrs">
               <div id="u58_div" class=""></div>
               <div id="u58_text" class="text ">
-                <p><span>补充测量时间</span></p>
+                <p><span>测量时间</span></p>
               </div>
             </div>
 
@@ -384,7 +386,7 @@
             <div id="u59" class="ax_default _文本 transition notrs">
               <div id="u59_div" class=""></div>
               <div id="u59_text" class="text ">
-                <p><span>14:00</span></p>
+                <p></p>
               </div>
             </div>
 
@@ -408,9 +410,20 @@
             <div id="u62" class="ax_default _文本 transition notrs">
               <div id="u62_div" class=""></div>
               <div id="u62_text" class="text ">
-                <p><span>日期：今天</span></p><p><span>本次演示预设测量时间为 14:00</span></p><p><span>点击确认补充后生效</span></p>
+                <p></p>
               </div>
             </div>
+            <form id="review-time-form" class="review-time-form" novalidate>
+              <label for="measurement-time">输入具体钟点</label>
+              <input id="measurement-time" type="text" placeholder="HH:MM" autocomplete="off"
+                     aria-describedby="measurement-time-help measurement-time-error"/>
+              <p id="measurement-time-help">使用 24 小时制，例如 14:00。</p>
+              <p id="measurement-time-error" role="alert" hidden></p>
+              <div class="review-time-actions">
+                <button type="submit">确认时间</button>
+                <button type="button" id="keep-time-unknown">保留未知</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
