@@ -1,0 +1,21 @@
+# Python and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Jupyter and generated analysis outputs
+.ipynb_checkpoints/
+/analysis/.kernel/
+/analysis/raw/
+/analysis/outputs/
+
+# Editor, Axure and Windows temporary files
+*.log
+*.tmp
+*.rp.bak
+~$*
+Thumbs.db
+Desktop.ini
+.DS_Store
