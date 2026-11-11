@@ -12,6 +12,33 @@
 
 原型使用固定演示数据，重点展示记录核对、缺失信息提示与用户确认交互。PRD 包含更完整的需求范围；当前在线原型覆盖其中的血糖录入与核对流程。
 
+## Axure 原型截图
+
+点击截图查看大图。
+
+**P01 血糖记录首页**
+
+[![P01 血糖记录首页](docs/screenshots/p01-home.png)](docs/screenshots/p01-home.png)
+
+| P05 AI 提取结果核对 | P06 编辑记录 |
+| --- | --- |
+| [![P05 结果核对与待补充时间](docs/screenshots/p05-review.png)](docs/screenshots/p05-review.png) | [![P06 编辑血糖记录弹窗](docs/screenshots/p06-edit.png)](docs/screenshots/p06-edit.png) |
+| **P07 补充信息** | **P08 保存成功** |
+| [![P07 补充测量时间](docs/screenshots/p07-supplement.png)](docs/screenshots/p07-supplement.png) | [![P08 最终保存结果](docs/screenshots/p08-saved.png)](docs/screenshots/p08-saved.png) |
+
+## Python 数据分析
+
+覆盖 400 名模拟用户、90 天和 17,168 条原始操作记录，清洗后保留 16,887 条。Notebook 展示录入与复诊准备漏斗、分类回访、用户行为分群和失败恢复，并根据模拟结果提出草稿提示、保存重试反馈和历史入口埋点的验证建议。
+
+[查看居家血糖用户行为分析 Notebook](analysis/居家血糖用户行为分析.ipynb)
+
+在仓库根目录使用 Python 3.12 安装依赖并运行。原有配置和固定种子会重建模拟数据、指标及交互式图表。
+
+```bash
+python -m pip install -r analysis/requirements.txt
+python analysis/run_analysis.py
+```
+
 ## 项目配套资料
 
 | 资料 | 内容 | 入口 |
