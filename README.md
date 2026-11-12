@@ -1,6 +1,6 @@
 # 居家血糖记录与 AI 复诊速览
 
-**[打开 Axure V2.1 在线原型](https://23huabb.github.io/glucose-ai/)**
+**[打开 Axure V2.2 在线原型](https://23huabb.github.io/glucose-ai/)**
 
 ## 项目简介
 
@@ -8,7 +8,7 @@
 
 ## 核心方案
 
-- **原型已展示**：用固定样例演示文字录入、模拟提取和候选核对。患者可对照原文、修改示例数值，或补充实际测量钟点。记不清钟点时可以保留未知，核对页和保存回执使用同一结果。
+- **原型已展示**：用固定样例演示文字录入、模拟提取和候选核对。患者可对照原文、修改示例数值，或补充实际测量钟点。记不清钟点时可以保留未知。重新核对时，原始提取信息与当前结果分别显示，核对页和保存回执使用同一结果。
 - **PRD 已设计**：支持手填、批量文字和固定模板 CSV。文字提取结果由患者确认。缺数值、单位或归属的资料留待补充，冲突并列核对。符合条件的钟点未知记录可按日和测量类型统计，日内时点留空。
 - **PRD 已设计**：保留原文、来源与记录修订，供患者追查。复诊前按周期选取资料，核对摘要和待问问题，再预览并导出供就诊携带的 PDF。
 
@@ -16,7 +16,7 @@
 
 | 资料 | 入口 |
 | --- | --- |
-| Axure V2.1 交互原型 | [打开在线原型](https://23huabb.github.io/glucose-ai/) · [查看五张原型截图](#axure-原型截图) |
+| Axure V2.2 交互原型 | [打开在线原型](https://23huabb.github.io/glucose-ai/) · [查看五张原型截图](#axure-原型截图) |
 | 竞品分析报告 V1.2 | [阅读 PDF](docs/project/%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_V1.2.pdf) · 血糖管理与复诊辅助的竞品对比 |
 | 产品需求文档 PRD V1.0 | [阅读 PDF](docs/project/%E5%B1%85%E5%AE%B6%E8%A1%80%E7%B3%96%E8%AE%B0%E5%BD%95%E4%B8%8E%20AI%20%E5%A4%8D%E8%AF%8A%E9%80%9F%E8%A7%88_PRD_V1.0.pdf) · 业务流程、AI 能力边界与验收规则 |
 | Python 用户行为分析 | [查看 Notebook](analysis/居家血糖用户行为分析.ipynb) |
@@ -50,8 +50,8 @@ PRD 附录 B 按完整产品编排 P01–P10。Axure 按单条演示流程独立
 | P05 结果核对 · 钟点待核对 | P06 编辑记录 |
 | --- | --- |
 | [![P05 核对原文和候选记录](docs/screenshots/p05-review.png)](docs/screenshots/p05-review.png) | [![P06 编辑血糖记录弹窗](docs/screenshots/p06-edit.png)](docs/screenshots/p06-edit.png) |
-| **P07 核对测量时间** | **P08 保存成功 · 时间未知** |
-| [![P07 输入具体钟点或保留未知](docs/screenshots/p07-supplement.png)](docs/screenshots/p07-supplement.png) | [![P08 保存结果保留未知钟点](docs/screenshots/p08-saved.png)](docs/screenshots/p08-saved.png) |
+| **P07 再次核对测量时间** | **P08 保存成功 · 时间未知** |
+| [![P07 显示原始提取时间与当前核对结果](docs/screenshots/p07-supplement.png)](docs/screenshots/p07-supplement.png) | [![P08 保存结果保留未知钟点](docs/screenshots/p08-saved.png)](docs/screenshots/p08-saved.png) |
 
 ## 本地运行与维护
 

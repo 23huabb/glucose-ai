@@ -65,6 +65,15 @@
 ._文本 {
   text-align:left;
 }
+.text_field {
+  color:#000000;
+  text-align:left;
+}
+.form_hint {
+  color:#999999;
+}
+.form_disabled {
+}
 ._表单提示 {
   color:#999999;
 }
